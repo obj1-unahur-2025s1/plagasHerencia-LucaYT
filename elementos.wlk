@@ -17,6 +17,7 @@ object nivelMinimo{
 
 class Mascota{
     var salud
+    method salud(){return salud}
     method esBueno(){return salud > 250}
     method plagaAtaca(unaPlaga){salud -= 0.max(if(unaPlaga.puedeTransmitir()) unaPlaga.daño() else 0)}
 }
