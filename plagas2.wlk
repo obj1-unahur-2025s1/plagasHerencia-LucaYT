@@ -13,6 +13,7 @@ class Cucarachas inherits Plaga{
 
 class Pulgas inherits Plaga{
     override method daño(){return super() * 2}
+    override method condicionAdicional() = true
 }
 
 class Garrapatas inherits Pulgas{
@@ -20,4 +21,12 @@ class Garrapatas inherits Pulgas{
 
 class Mosquito inherits Plaga{
     override method condicionAdicional(){return poblacion % 3 == 0}
+}
+
+class Caracoles inherits Plaga{
+    override method puedeTransmitir(){return clima.llovio()}
+}
+
+object clima{
+    var property llovio = true
 }

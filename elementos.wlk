@@ -2,11 +2,13 @@ class Hogar {
     var mugre
     const confort
     method esBueno(){return mugre / 2 <= confort}
+    method plagaAtaca(unaPlaga){mugre += unaPlaga.daño()}
 }
 
 class Huerta {
     var produccion
     method esBueno(){return produccion > nivelMinimo.valor()}
+    method plagaAtaca(unaPlaga){produccion -= 0.max(unaPlaga.daño() * 0.1 + if(unaPlaga.puedeTransmitir()) 10 else 0)}
 }
 
 object nivelMinimo{
@@ -16,6 +18,7 @@ object nivelMinimo{
 class Mascota{
     var salud
     method esBueno(){return salud > 250}
+    method plagaAtaca(unaPlaga){salud -= 0.max(if(unaPlaga.puedeTransmitir()) unaPlaga.daño() else 0)}
 }
 
 class Barrio{
